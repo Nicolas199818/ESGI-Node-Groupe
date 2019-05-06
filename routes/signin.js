@@ -9,14 +9,14 @@ router.post('/',function(req,res,next){
   if(req.body.password.length < 4){
     res.status(400).send({error: 'Le mot de passe doit contenir au moins 4 caractères'});
   }
-  else if(!checkUser(req.body.user)){
+  else if(!checkUser(req.body.username)){
     res.status(400).send({error: 'Votre identifiant ne doit contenir que des lettres minuscules non accentuées'});
   }
-  else if(req.body.user.length <2 || req.body.user.length > 20){
+  else if(req.body.username.length <2 || req.body.username.length > 20){
     res.status(400).send({error: 'Votre identifiant doit contenir entre 2 et 20 caractères'})
   }
   else{
-    signupFunction(req.body.user,req.body.password,res);
+    signupFunction(req.body.username,req.body.password,res);
   }
 
 
